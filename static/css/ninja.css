@@ -1,0 +1,57 @@
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    body {
+        background-color: gainsboro;
+        font-family: lucida;
+        width: 950px;
+        min-height: 600px;
+
+        padding: 30px;
+    }
+    section {
+        width: 900px;
+        min-height: 180px; 
+        text-align: center;
+        margin-top: 10px;
+    }
+    article {
+        width: 170px;
+        min-height: 140px;
+        outline: 2px solid black;
+        display: inline-block; 
+        padding: 15px;         
+        margin-right: 20px;
+        vertical-align: top;
+    }
+
+    h4 {
+        display: inline-block;
+    }
+    h3 {
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+    input {
+        padding: 2px 20px;
+        box-shadow: 3px 3px 5px black;
+    }
+
+    .blocktext{
+        padding: -15px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+    #activitylabel {
+        padding: 10px;
+    }
+    #log {
+        margin: -5px 0px 20px 3px;
+        width:870px; 
+        height: 100px; 
+        overflow-y: scroll;
+        border: 2px solid black;
+        text-indent: 5px;
+    }

@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Ninja Farm">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ninja farm</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/ninja.css') }}">
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+
+    $(document).ready(function() {
+        $('form').submit(function(){
+            console.log("scrolled");
+            $('#log').scrollTop($('#log')[0].scrollHeight); 
+            console.log("scrollheight",$('#log')[0].scrollHeight);  
+        return false;
+        });
+    });
+
+        </script>
+        <!-- <script src="{{ url_for('static', filename='js/ninja.js') }}"></script> -->
+        <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    body {
+        background-color: gainsboro;
+        font-family: lucida;
+        width: 950px;
+        min-height: 600px;
+
+        padding: 30px;
+    }
+    section {
+        width: 900px;
+        min-height: 180px; 
+        text-align: center;
+        margin-top: 10px;
+    }
+    article {
+        width: 170px;
+        min-height: 140px;
+        outline: 2px solid black;
+        display: inline-block; 
+        padding: 15px;         
+        margin-right: 20px;
+        vertical-align: top;
+    }
+
+    h4 {
+        display: inline-block;
+    }
+    h3 {
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+    input {
+        padding: 2px 20px;
+        box-shadow: 3px 3px 5px black;
+    }
+
+    .blocktext{
+        padding: -15px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+    #activitylabel {
+        padding: 10px;
+    }
+    #log {
+        margin: -5px 0px 20px 3px;
+        width:870px; 
+        height: 100px; 
+        overflow-y: scroll;
+        border: 2px solid black;
+        text-indent: 5px;
+    }    
+        </style>
+    <head>
+    <body>
+    <h4> Your Gold:</h4>
+    {% if 'earned' in session %}
+    <h4 id="totalgold"> {{ session['earned'] }} </h4>
+    {% else %}
+    <h4 id="totalgold"> 0 </h4>
+    {% endif %}
+    <br>
+
+    <section>
+        <article id="farmgold">
+        <h3>Farm</h3>
+        <p class='blocktext'>(earns 10-20 golds)</p>
+        <form method="post" action="/process_money"><input type="submit" value="Find Gold!">
+        <input type="hidden" value='farm' name='vault'>
+        </form>
+        </article>
+        
+        <article id="cavegold">
+        <h3>Cave</h3>
+        <p class='blocktext'>(earns 5-10 golds)</p>
+        <form method="post" action="/process_money"><input type="submit" value="Find Gold!">
+        <input type="hidden" value='cave' name='vault'>
+        </form>
+        </article>
+        
+        <article id="housegold">
+        <h3>House</h3>
+        <p class='blocktext'>(earns 2-5 golds)</p>
+        <form method="post" action="/process_money"><input type="submit" value="Find Gold!">
+        <input type="hidden" value='house' name='vault'>
+        </form>
+        </article>
+        
+        <article id="casinogold">
+        <h3>Casino</h3>
+        <p class='blocktext'>(earns +/-50 golds)</p>
+        <form method="post" action="/process_money"><input type="submit" value="Find Gold!">
+        <input type="hidden" value='casino' name='vault'>
+        </form>
+        </article>
+        
+        </article>
+    </section>
+    <br>
+    <p id='activitylabel'>Activities:</p>
+    <div id="log">
+    {% for x in session['log'] %}
+        <p> {{ x }} </p>
+    {% endfor %}
+    </div>
+    </p name='vault2'>
+        <form method="post" action="/process_money"><input type="submit" value="Reset">
+        <input type="hidden" value='reset' name='vault'>
+        </form>
+
+        </body>
+</html>
