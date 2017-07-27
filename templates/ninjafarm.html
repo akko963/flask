@@ -6,15 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Ninja farm</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/ninja.css') }}">
-         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script>
 
     $(document).ready(function() {
-        $('form').submit(function(){
             console.log("scrolled");
+            console.log("scroll height:",$('#log')[0].scrollHeight);
             $('#log').scrollTop($('#log')[0].scrollHeight); 
-            console.log("scrollheight",$('#log')[0].scrollHeight);  
-        return false;
-        });
     });
 
         </script>
@@ -30,7 +27,6 @@
         font-family: lucida;
         width: 950px;
         min-height: 600px;
-
         padding: 30px;
     }
     section {
